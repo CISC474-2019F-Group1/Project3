@@ -1,2 +1,22 @@
-<p>home works!</p>
-<button class='btn btn-dark' (click)='onClick()'>Click Me</button>
+<mat-card>
+    From
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="from">
+    </mat-form-field>
+    To
+    <mat-form-field>
+      <textarea matInput rows="6" [(ngModel)]="to"></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onClick()">Submit
+    </button>
+</mat-card>
+
+
+
+
+<!-- 
+<p>home works？</p>
+<button class='btn btn-dark' (click)='onClick()'>Click Me</button> -->
