@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../test.service';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +12,9 @@ import { TestService } from '../test.service';
 export class HomeComponent implements OnInit {
 
   constructor(private sharedSvc: TestService) { }
-  from = " ";
-  to = " ";
+  from = '';
+  to = '';
+
 
   ngOnInit() {
 
