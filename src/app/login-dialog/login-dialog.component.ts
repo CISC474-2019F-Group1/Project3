@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -18,8 +19,10 @@ export class LoginDialogComponent implements OnInit {
 
   constructor(private fb:FormBuilder, 
               private authService: AuthService, 
+              private global: GlobalService,
               private router: Router,
-              public dialogRef: MatDialogRef<LoginDialogComponent>) {
+              public dialogRef: MatDialogRef<LoginDialogComponent>,
+              ) {
 
       this.loginForm = this.fb.group({
           email: ['',Validators.required],
@@ -43,6 +46,7 @@ export class LoginDialogComponent implements OnInit {
           () => {
             console.log("User is logged in");
             this.router.navigateByUrl('/');
+            this.global.setLoggedIn(true);
             this.dialogRef.close();
           });
     }

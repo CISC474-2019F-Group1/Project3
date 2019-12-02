@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
+import { GlobalService } from './global.service';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { RoutesComponent } from './routes/routes.component';
     MatIconModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginDialogComponent,

@@ -14,11 +14,15 @@ export class AuthService {
   }
 
   signup(firstname:string, lastname:string, email:string, password:string ) {
-    return this.http.post('http://localhost:3000/api/auth/register', {
+    return this.http.post('http://localhost:3000/api/createUsr', {
         'firstname': firstname,
         'lastname': lastname,
         'email': email, 
-        'password': password
+        'password': password,
+        'trips':[],
+        'role': 'active',
+        'username': firstname+lastname
+
       })
       .pipe(
         tap(res => { this.setSession(res) }),
@@ -27,7 +31,7 @@ export class AuthService {
   }
 
   login(email:string, password:string ) {
-    return this.http.post('http://localhost:3000/api/auth/login', {
+    return this.http.post('http://localhost:3000/api/login', {
         'email': email, 
         'password': password
       })
