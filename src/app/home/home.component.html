@@ -4,9 +4,9 @@
       <mat-card class=table1>
         <mat-form-field>
           <mat-label>From</mat-label>
-          <mat-select [formControl]="fromControl" required>
+          <mat-select id="fromSelect" matInput [formControl]="fromControl" required>
             <mat-option>--</mat-option>
-            <mat-option *ngFor="let city of cities" [value]="city">
+            <mat-option *ngFor="let city of cities" [value]="city.abbrv">
               {{city.name}}
             </mat-option>
           </mat-select>
@@ -14,22 +14,22 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>To</mat-label>
-          <mat-select [formControl]="toControl" required>
+          <mat-select id="toSelect" matInput [formControl]="toControl" required>
             <mat-option>--</mat-option>
-            <mat-option *ngFor="let city of cities" [value]="city">
+            <mat-option *ngFor="let city of cities" [value]="city.abbrv">
               {{city.name}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="toControl.hasError('required')">Please choose a city.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <input id="dateSelect" matInput [matDatepicker]="picker" [formControl]="dateControl" placeholder="Date" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dateControl.hasError('required')">Please choose a date.</mat-error>
         </mat-form-field>
         <div>
-          <button mat-raised-button color="primary" (click)="onClick()">Submit
-          </button>
+          <button mat-raised-button color="primary" (click)="onClick()">Submit</button>
         </div>
       </mat-card>
     </mat-tab>

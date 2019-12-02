@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import * as $ from 'jquery';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
@@ -14,9 +15,11 @@ export interface City {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @Output() output: string;
 
   fromControl =  new FormControl('', [Validators.required]);
   toControl =  new FormControl('', [Validators.required]);
+  dateControl =  new FormControl('', [Validators.required]);
   cities: City[] = [
     {name: 'Atlanta', abbrv: 'ATL'},
     {name: 'Boston', abbrv: 'BOS'},
@@ -43,6 +46,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() { }
 
-  onClick() { }
+  onClick() {
+    const fromAbbrv = this.fromControl.value;
+    const toAbbrv = this.toControl.value;
+    const dateVal = this.dateControl.value;
+
+    $.ajax({
+        url: `http://localhost:3000/path/${fromAbbrv}${toAbbrv}/${dateVal}`,
+        contentType: 'application/json',
+        type: 'GET',
+        statusCode: {
+          200(response) {
+              this.output = JSON.stringify(response);
+          }
+        }
+    });
+  }
 
 }
