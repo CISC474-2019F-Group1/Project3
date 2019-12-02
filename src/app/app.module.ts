@@ -8,11 +8,15 @@ import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatTabsModule, MatAutocompleteModule, MatListModule,
   MatSelectModule, MatIconModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { LoginComponent } from './login/login.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 
 
 @NgModule({
@@ -21,12 +25,16 @@ import { LayoutModule } from '@angular/cdk/layout';
     HomeComponent,
     MenuComponent,
     MenuComponent,
+    LoginComponent,
+    LoginDialogComponent,
+    SignupDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
@@ -43,6 +51,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginDialogComponent,
+    SignupDialogComponent
+  ]
 })
 export class AppModule { }
