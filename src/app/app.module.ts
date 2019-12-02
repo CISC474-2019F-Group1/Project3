@@ -14,12 +14,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { RoutesComponent } from './routes/routes.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RoutesComponent,
     MenuComponent,
     MenuComponent,
   ],

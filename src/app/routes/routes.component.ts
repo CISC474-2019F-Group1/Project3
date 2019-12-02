@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as $ from 'jquery';
 
 import { Route } from './route';
 import { RoutesService } from './routes.service';
+import { Observable } from 'rxjs';
 
 let routesList: Route[];
 
@@ -15,20 +17,23 @@ let routesList: Route[];
 export class RoutesComponent implements OnInit {
 
   routesList = [];
-  error: any;
 
-  constructor(private routesService: RoutesService) { }
+  constructor(private http: HttpClient, private routesService: RoutesService) { }
 
   ngOnInit() {
+
     this.getRoutes();
+
   }
 
-  getRoutes(): void {
-    this.routesService.getRoutes()
-    .subscribe(
-      (data: Route[]) => this.routesList = { ...data },
-       error => this.error = error
-    );
+  getRoutes(): void{
+
+    this.routesService.getRoutes().subscribe({
+      next: x => this.routesList=x,
+      error: err => console.log("error: " + err),
+      complete: () => console.log(routesList),
+    });
+
   }
 
 }
