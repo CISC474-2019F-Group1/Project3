@@ -1,5 +1,19 @@
-<ul class="routes">
-    <li *ngFor="let route of routesList">
-        <span>{{route.startStation}}</span><span>-></span><span>{{route.destStation}}</span>
-    </li>
-</ul>
+<div class="routes">
+    <div class="panel-group route" [attr.id]="'accordion_' + i" *ngFor="let route of routesList; let i = index;">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <p id="dests">{{route.startStation}} &#8594; {{route.destStation}}</p>
+                <p class="desc"><span>Train:</span> {{route.train.name}}</p>
+                <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
+            </div>
+            <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="route-times">
+                        <li *ngFor="let trip of route.trips | slice:0:10">
+                            <span>{{trip[0] | date : 'EEE, LLL d, H:mm'}}</span><span>to</span><span>{{trip[1] | date : 'H:mm'}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</div>
