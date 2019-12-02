@@ -20,7 +20,7 @@ export class RoutesService {
     }
 
     getRoutes(): Observable<Route[]> {
-        return this.http.get<Route[]>(this.apiUrl);
+        return this.http.get<Route[]>(`http://localhost:3000/api/routes`);
     }
 
 }

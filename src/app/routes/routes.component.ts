@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 
 import { Route } from './route';
 import { RoutesService } from './routes.service';
+import { Observable } from 'rxjs';
 
 let routesList: Route[];
 
@@ -17,36 +18,22 @@ export class RoutesComponent implements OnInit {
 
   routesList = [];
 
-  constructor(private routesService: RoutesService) { }
+  constructor(private http: HttpClient, private routesService: RoutesService) { }
 
   ngOnInit() {
-    $.ajax({
-      url: `http://localhost:3000/api/routes`,
-      contentType: 'application/json',
-      type: 'GET',
-      statusCode: {
-        200(response) {
-            routesList = response;
-            console.log(response);
-        }
-      }
 
-  });
+    this.getRoutes();
+
   }
 
-  getRoutes(): void {
-    $.ajax({
-      url: `http://localhost:3000/api/routes`,
-      contentType: 'application/json',
-      type: 'GET',
-      statusCode: {
-        200(response) {
-            this.output = JSON.stringify(response);
-            console.log(response);
-        }
-      }
+  getRoutes(): void{
 
-  });
+    this.routesService.getRoutes().subscribe({
+      next: x => this.routesList=x,
+      error: err => console.log("error: " + err),
+      complete: () => console.log(routesList),
+    });
+
   }
 
 }
