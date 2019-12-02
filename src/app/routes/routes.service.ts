@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Route } from './route';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:3000/api/routes'
+    })
+  };
 
 @Injectable()
 export class RoutesService {

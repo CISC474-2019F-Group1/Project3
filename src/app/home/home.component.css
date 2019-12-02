@@ -1,6 +1,6 @@
 mat-card {
     margin: 0 auto;
-    max-width: 30%;
+    max-width: 100%;
     float: none;
 }
 
@@ -9,6 +9,7 @@ mat-card {
   max-width: 100%;
   float: none;
 }
+
 mat-form-field,
   textarea {
     width: 50%;
@@ -20,16 +21,16 @@ mat-form-field,
     width: 500px;
     height: 300px;
     border: 1px solid rgba(0, 0, 0, 0.5);
-  }
+}
   
 .example-sidenav-content {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
-  }
+}
   
 .example-sidenav {
     padding: 20px;
-  }
+}
   

@@ -1,53 +1,37 @@
 <mat-card>
-<mat-tab-group dynamicHeight mat-align-tabs="center"> 
-  <mat-tab label="Find Routes">
-    <mat-card class = table1>
-      <mat-form-field>
-        <input matInput type="text"  placeholder="From" [(ngModel)]="from">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" placeholder="To" [(ngModel)]="to">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <div>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="onClick()">Submit
-      </button>
-      </div>
-      <mat-list role="list">
-        <mat-list-item role="listitem">Item 1</mat-list-item>
-        <mat-list-item role="listitem">Item 2</mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
-      </mat-list>
-    </mat-card> 
-  </mat-tab>
-  <mat-tab label="View Trains">
-    <div class="example-large-box mat-elevation-z4">
-      <mat-drawer-container class="example-container" autosize>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-          <p>Auto-resizing sidenav</p>
-          <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
-          <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-          </button>
-        </mat-drawer>
-      
-        <div class="example-sidenav-content">
-          <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-          </button>
+  <mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab label="Find Routes">
+      <mat-card class=table1>
+        <mat-form-field>
+          <mat-label>From</mat-label>
+          <mat-select id="fromSelect" matInput [formControl]="fromControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city.abbrv">
+              {{city.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="fromControl.hasError('required')">Please choose a city.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>To</mat-label>
+          <mat-select id="toSelect" matInput [formControl]="toControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city.abbrv">
+              {{city.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="toControl.hasError('required')">Please choose a city.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input id="dateSelect" matInput [matDatepicker]="picker" [formControl]="dateControl" placeholder="Date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dateControl.hasError('required')">Please choose a date.</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" (click)="onClick()">Submit</button>
         </div>
-      
-      </mat-drawer-container>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </mat-card>
-
-

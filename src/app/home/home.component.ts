@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { TestService } from '../test.service';
-import {FormControl} from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import * as $ from 'jquery';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+
+export interface City {
+  name: string;
+  abbrv: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -10,17 +15,52 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @Output() output: string;
 
-  constructor(private sharedSvc: TestService) { }
-  from = '';
-  to = '';
+  fromControl =  new FormControl('', [Validators.required]);
+  toControl =  new FormControl('', [Validators.required]);
+  dateControl =  new FormControl('', [Validators.required]);
+  cities: City[] = [
+    {name: 'Atlanta', abbrv: 'ATL'},
+    {name: 'Boston', abbrv: 'BOS'},
+    {name: 'Charlotte', abbrv: 'CHR'},
+    {name: 'Chicago', abbrv: 'CHI'},
+    {name: 'Detroit', abbrv: 'DTR'},
+    {name: 'Denver', abbrv: 'DNV'},
+    {name: 'Houston', abbrv: 'HOU'},
+    {name: 'Los Angeles', abbrv: 'LAX'},
+    {name: 'Las Vegas', abbrv: 'LAV'},
+    {name: 'New York City', abbrv: 'NYC'},
+    {name: 'Miami', abbrv: 'MIA'},
+    {name: 'Minneapolis', abbrv: 'MNN'},
+    {name: 'Pheonix', abbrv: 'PHX'},
+    {name: 'Philadelphia', abbrv: 'PHL'},
+    {name: 'Pittsburgh', abbrv: 'PIT'},
+    {name: 'San Francisco', abbrv: 'SFS'},
+    {name: 'Seattle', abbrv: 'SEA'},
+    {name: 'St. Louis', abbrv: 'STL'},
+    {name: 'Washington DC', abbrv: 'WDC'},
+  ];
 
+  constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   onClick() {
-    this.sharedSvc.sharedValue++;
+    const fromAbbrv = this.fromControl.value;
+    const toAbbrv = this.toControl.value;
+    const dateVal = this.dateControl.value;
+
+    $.ajax({
+        url: `http://localhost:3000/path/${fromAbbrv}${toAbbrv}/${dateVal}`,
+        contentType: 'application/json',
+        type: 'GET',
+        statusCode: {
+          200(response) {
+              this.output = JSON.stringify(response);
+          }
+        }
+    });
   }
+
 }
