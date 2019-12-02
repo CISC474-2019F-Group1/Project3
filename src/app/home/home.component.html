@@ -1,22 +1,37 @@
 <mat-card>
-    From
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="from">
-    </mat-form-field>
-    To
-    <mat-form-field>
-      <textarea matInput rows="6" [(ngModel)]="to"></textarea>
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="onClick()">Submit
-    </button>
+  <mat-tab-group dynamicHeight mat-align-tabs="center">
+    <mat-tab label="Find Routes">
+      <mat-card class=table1>
+        <mat-form-field>
+          <mat-label>From</mat-label>
+          <mat-select [formControl]="fromControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city">
+              {{city.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="fromControl.hasError('required')">Please choose a city.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>To</mat-label>
+          <mat-select [formControl]="toControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city">
+              {{city.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="toControl.hasError('required')">Please choose a city.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" (click)="onClick()">Submit
+          </button>
+        </div>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </mat-card>
-
-
-
-
-<!-- 
-<p>home works？</p>
-<button class='btn btn-dark' (click)='onClick()'>Click Me</button> -->
