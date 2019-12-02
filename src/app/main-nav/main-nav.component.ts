@@ -1,27 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
-import { GlobalService } from '../global.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-main-nav',
+  templateUrl: './main-nav.component.html',
+  styleUrls: ['./main-nav.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MainNavComponent {
 
-  @Input() activeClass = 'active';
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
-  constructor(public dialog: MatDialog, private global: GlobalService) {}
+  constructor(public breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
+   activeClass = 'active';
 
-  ngOnInit() {
-  }
-  
-  openLoginDialog(): void {
+
+   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '350px'
     });
@@ -40,4 +42,6 @@ export class MenuComponent implements OnInit {
       console.log('Signup dialog closed');
     });
   }
+
+
 }

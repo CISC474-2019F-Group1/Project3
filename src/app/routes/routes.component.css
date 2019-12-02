@@ -5,34 +5,47 @@
     list-style-type: none;
 }
 
-ul { 
-    font-style: italic; 
-    font-family: Georgia, Times, serif;
-    font-size: 24px;
-    color: #bfe1f1; 
-    -webkit-column-count:5 !important; -webkit-column-gap: 20px !important;
-    -moz-column-count:5 !important; -moz-column-gap: 20px !important;
-    -o-column-count:5 !important; -o-column-gap: 20px !important;
-    column-count:5 !important; column-gap: 20px !important;
+.routes {
+    -webkit-column-count:2 !important; -webkit-column-gap: 20px !important;
+    -moz-column-count:2 !important; -moz-column-gap: 20px !important;
+    -o-column-count:2 !important; -o-column-gap: 20px !important;
+    column-count:2 !important; column-gap: 20px !important;
     list-style-position: inside !important;
 }
 
-.routes li {
-    counter-increment: step-counter;
-}
- 
-.routes li::before {
-    content: counter(step-counter);
-    margin-right: 5px;
-    font-size: 80%;
-    background-color: rgb(81, 81, 81);
-    color: white;
+.routes #dests{
+    display: inline-block;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px #FFF solid;
+    margin-bottom: 5px;
+    font-size: 1.5em !important;
     font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 3px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.routes span { 
+.routes .route {
+    width: 100%;
+    background-color: #333;
+    margin: 10px 0px 10px 0px;
+}
+
+.routes .route:first-of-type{
+    margin-top: 0px;
+}
+
+.routes .route:last-of-type{
+    margin-bottom: 0px;
+}
+
+.routes .panel-heading{
+    padding: 5px;
+}
+
+.routes p { 
     padding: 2px; 
     font-style: normal; 
     font-family: Arial; 
@@ -40,7 +53,40 @@ ul {
     color: #eee !important;    
 }
 
-.routes a:hover {
-    background-color: rgb(81, 81, 81) !important;
-    opacity: 1;
+.routes .desc{
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    background-color: #222;
+}
+
+.routes span#upcoming{
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #222;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.route-times{
+    background-color: #222;
+    padding: 5px;
+    margin: 0px;
+}
+
+.route-times li{
+    width: auto;
+    background-color: #000;
+    margin: 5px;
+    list-style: none;
+}
+
+.route-times li:first-of-type{
+    margin-top: 5px;
+}
+
+.route-times li:last-of-type{
+    margin-bottom: 5px;
 }

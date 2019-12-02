@@ -1,0 +1,27 @@
+<h5 mat-dialog-title>Sign Up</h5>
+<div mat-dialog-content>
+  <form [formGroup]="signupForm">
+    <fieldset>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="First name" name="firstname" formControlName="firstname">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Last name" name="lastname" formControlName="lastname">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Email" name="email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput type="password" placeholder="Password" name="password" formControlName="password">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput type="password" placeholder="Confirm password" name="password2" formControlName="password2">
+      </mat-form-field>
+    </fieldset>
+  </form>
+</div>
+<div mat-dialog-actions class="btn-group d-flex" role="group">
+  <button class="w-100 mr-1" mat-button (click)="onCancel()">Cancel</button>
+  <button class="w-100" mat-flat-button (click)="onSubmit()" color="primary">Submit</button>
+</div>
+
