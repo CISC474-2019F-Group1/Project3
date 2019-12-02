@@ -6,8 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
   MatTabsModule, MatAutocompleteModule, MatListModule,
-  MatSidenavModule, MatSelectModule, MatRadioModule, 
-  MatCheckboxModule, MatIconModule} from '@angular/material';
+  MatSelectModule, MatIconModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -39,10 +38,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatAutocompleteModule,
     MatTabsModule,
     MatListModule,
-    MatSidenavModule,
     MatSelectModule,
-    MatRadioModule,
-    MatCheckboxModule,
     MatIconModule,
     LayoutModule
   ],
