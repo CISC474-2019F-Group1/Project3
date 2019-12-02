@@ -39,3 +39,8 @@ ul {
     font-size: 18px !important; 
     color: #eee !important;    
 }
+
+.routes a:hover {
+    background-color: rgb(81, 81, 81) !important;
+    opacity: 1;
+}

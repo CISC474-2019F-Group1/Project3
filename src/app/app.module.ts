@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RoutesComponent } from './routes/routes.component';
+import { BuyComponent } from './buy/buy.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { RoutesComponent } from './routes/routes.component';
     RoutesComponent,
     MenuComponent,
     MenuComponent,
+    BuyComponent,
   ],
   imports: [
     BrowserModule,
