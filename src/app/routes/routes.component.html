@@ -1,1 +1,7 @@
-<p>routes works!</p>
+<ul class="routes">
+    <li *ngFor="let route of routes">
+        <span>{{ route.id }}</span>
+        <span>{{route.startStation}}</span>
+        <span>{{route.destStation}}</span>
+    </li>
+  </ul>

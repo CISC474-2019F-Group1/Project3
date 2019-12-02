@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-
-
+import { HttpClient } from '@angular/common/http';
+import { Route } from './route';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class RoutesService {
-  constructor(private http: HttpClient) { }
+
+    apiUrl = 'localhost:3000/api/routes';
+
+    constructor(private http: HttpClient) {
+    }
+
+    getRoutes(): Observable<Route[]> {
+        return this.http.get<Route[]>(this.apiUrl);
+    }
+
 }
