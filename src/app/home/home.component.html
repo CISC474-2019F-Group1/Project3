@@ -1,5 +1,5 @@
 <mat-card>
-<mat-tab-group dynamicHeight mat-align-tabs="center"> 
+  <mat-tab-group dynamicHeight mat-align-tabs="center"> 
   <mat-tab label="Find Routes">
     <mat-card class = table1>
       <mat-form-field>
@@ -20,11 +20,26 @@
         (click)="onClick()">Submit
       </button>
       </div>
-      <mat-list role="list">
+      <!-- <mat-list role="list">
         <mat-list-item role="listitem">Item 1</mat-list-item>
         <mat-list-item role="listitem">Item 2</mat-list-item>
         <mat-list-item role="listitem">Item 3</mat-list-item>
-      </mat-list>
+      </mat-list> -->
+      <p>
+        
+      </p>
+      <mat-sidenav-container class="example-container">
+          <mat-sidenav-content >
+            <p><button mat-raised-button (click)="sidenav.toggle()">Ticket 1</button></p>
+            <p><button mat-raised-button (click)="sidenav.toggle()">Ticket 2</button></p>
+            <p><button mat-raised-button (click)="sidenav.toggle()">Ticket 3</button></p>
+          </mat-sidenav-content>
+          <mat-sidenav #sidenav mode="over" opened class="example-sidenav">
+              <p>This is a Ticket</p>
+              <p><button mat-raised-button (click)="sidenav.toggle()">Buy</button></p>
+              <p><button mat-raised-button (click)="sidenav.toggle()">Back</button></p>
+          </mat-sidenav>
+      </mat-sidenav-container>
     </mat-card> 
   </mat-tab>
   <mat-tab label="View Trains">
@@ -33,9 +48,9 @@
         <mat-drawer #drawer class="example-sidenav" mode="side">
           <p>Auto-resizing sidenav</p>
           <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
-          <button (click)="showFiller = !showFiller" mat-raised-button>
+          <!-- <button (click)="showFiller = !showFiller" mat-raised-button>
             Toggle extra text
-          </button>
+          </button> -->
         </mat-drawer>
       
         <div class="example-sidenav-content">
@@ -47,7 +62,5 @@
       </mat-drawer-container>
     </div>
   </mat-tab>
-</mat-tab-group>
+  </mat-tab-group>
 </mat-card>
-
-

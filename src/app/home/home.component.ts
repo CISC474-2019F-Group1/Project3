@@ -10,17 +10,22 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  mode = new FormControl('over');
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test
+    (window.location.host));
   constructor(private sharedSvc: TestService) { }
   from = '';
   to = '';
-
-
+  public photoUrl: string;
   ngOnInit() {
-
   }
-
   onClick() {
     this.sharedSvc.sharedValue++;
   }
 }
+
+// export class SidenavModeExample {
+//   mode = new FormControl('over');
+//   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test
+//     (window.location.host));
+// }
