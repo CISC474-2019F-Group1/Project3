@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as $ from 'jquery';
 
 import { Route } from './route';
 import { RoutesService } from './routes.service';
@@ -15,20 +16,37 @@ let routesList: Route[];
 export class RoutesComponent implements OnInit {
 
   routesList = [];
-  error: any;
 
   constructor(private routesService: RoutesService) { }
 
   ngOnInit() {
-    this.getRoutes();
+    $.ajax({
+      url: `http://localhost:3000/api/routes`,
+      contentType: 'application/json',
+      type: 'GET',
+      statusCode: {
+        200(response) {
+            routesList = response;
+            console.log(response);
+        }
+      }
+
+  });
   }
 
   getRoutes(): void {
-    this.routesService.getRoutes()
-    .subscribe(
-      (data: Route[]) => this.routesList = { ...data },
-       error => this.error = error
-    );
+    $.ajax({
+      url: `http://localhost:3000/api/routes`,
+      contentType: 'application/json',
+      type: 'GET',
+      statusCode: {
+        200(response) {
+            this.output = JSON.stringify(response);
+            console.log(response);
+        }
+      }
+
+  });
   }
 
 }
