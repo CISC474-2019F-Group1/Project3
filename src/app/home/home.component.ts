@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RoutesService } from '../routes/routes.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import {Observable} from 'rxjs';
@@ -43,7 +45,7 @@ export class HomeComponent implements OnInit {
     {name: 'Washington DC', abbrv: 'WDC'},
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private routes: RoutesService) { }
 
   ngOnInit() { }
 
@@ -59,10 +61,10 @@ export class HomeComponent implements OnInit {
         statusCode: {
           200(response) {
               this.output = JSON.stringify(response);
+              this.routes.routes = this.output;
               console.log(response);
           }
         }
-
     });
 
     this.router.navigateByUrl('/routes');

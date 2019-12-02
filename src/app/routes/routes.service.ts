@@ -13,13 +13,21 @@ const httpOptions = {
 
 @Injectable()
 export class RoutesService {
-
-    apiUrl = 'localhost:3000/api/routes';
+    reqroutes = '';
 
     constructor(private http: HttpClient) { }
 
     getRoutes(): Observable<Route[]> {
+      if (this.reqroutes === '') {
         return this.http.get<Route[]>(`http://localhost:3000/api/routes`);
+      } else {
+        let dbroutes = this.http.get<Route[]>(`http://localhost:3000/api/routes`);
+        let reqroutes = JSON.parse(this.reqroutes);
+
+        for (let i=0; i<reqroutes.length; i++) {
+          
+        }
+      }
     }
 
 }

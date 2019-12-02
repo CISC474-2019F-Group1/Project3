@@ -18,12 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
-<<<<<<< HEAD
-import { BuyComponent } from './buy/buy.component';
-=======
 import { GlobalService } from './global.service';
 import { MainNavComponent } from './main-nav/main-nav.component';
->>>>>>> 079632165ab34f6be6e5f10353636748d369c15a
 
 
 @NgModule({
@@ -33,14 +29,10 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     RoutesComponent,
     MenuComponent,
     MenuComponent,
-<<<<<<< HEAD
-    BuyComponent,
-=======
     LoginComponent,
     LoginDialogComponent,
     SignupDialogComponent,
     MainNavComponent
->>>>>>> 079632165ab34f6be6e5f10353636748d369c15a
   ],
   imports: [
     BrowserModule,
