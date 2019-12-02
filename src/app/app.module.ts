@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
@@ -17,12 +18,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './login/login.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
+import { RoutesComponent } from './routes/routes.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RoutesComponent,
     MenuComponent,
     MenuComponent,
     LoginComponent,
@@ -31,6 +34,7 @@ import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -49,18 +49,23 @@ export class HomeComponent implements OnInit {
   onClick() {
     const fromAbbrv = this.fromControl.value;
     const toAbbrv = this.toControl.value;
-    const dateVal = this.dateControl.value;
+    const dateVal = new Date(this.dateControl.value).getTime();
 
     $.ajax({
-        url: `http://localhost:3000/path/${fromAbbrv}${toAbbrv}/${dateVal}`,
+        url: `http://localhost:3000/api/path/${fromAbbrv}${toAbbrv}/${dateVal}`,
         contentType: 'application/json',
         type: 'GET',
         statusCode: {
           200(response) {
               this.output = JSON.stringify(response);
+              console.log(response);
           }
         }
+
     });
+
+    //console.log(this.output);
+
   }
 
 }
