@@ -6,20 +6,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
   MatTabsModule, MatAutocompleteModule, MatListModule,
-  MatSidenavModule, MatSelectModule} from '@angular/material';
+  MatSidenavModule, MatSelectModule, MatRadioModule, 
+  MatCheckboxModule, MatIconModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +39,12 @@ import { MenuComponent } from './menu/menu.component';
     MatAutocompleteModule,
     MatTabsModule,
     MatListModule,
-    MatSidenavModule, 
-    MatSelectModule
+    MatSidenavModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatIconModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
