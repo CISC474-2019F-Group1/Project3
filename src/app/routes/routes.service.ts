@@ -16,8 +16,7 @@ export class RoutesService {
 
     apiUrl = 'localhost:3000/api/routes';
 
-    constructor(private http: HttpClient) {
-    }
+    constructor(private http: HttpClient) { }
 
     getRoutes(): Observable<Route[]> {
         return this.http.get<Route[]>(`http://localhost:3000/api/routes`);

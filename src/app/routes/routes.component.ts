@@ -26,11 +26,11 @@ export class RoutesComponent implements OnInit {
 
   }
 
-  getRoutes(): void{
+  getRoutes(): void {
 
     this.routesService.getRoutes().subscribe({
-      next: x => this.routesList=x,
-      error: err => console.log("error: " + err),
+      next: x => this.routesList = x,
+      error: err => console.log('error: ' + err),
       complete: () => console.log(routesList),
     });
 

@@ -1,0 +1,41 @@
+.routes { 
+    width: 1000px; 
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+ul { 
+    font-style: italic; 
+    font-family: Georgia, Times, serif;
+    font-size: 24px;
+    color: #bfe1f1; 
+    -webkit-column-count:5 !important; -webkit-column-gap: 20px !important;
+    -moz-column-count:5 !important; -moz-column-gap: 20px !important;
+    -o-column-count:5 !important; -o-column-gap: 20px !important;
+    column-count:5 !important; column-gap: 20px !important;
+    list-style-position: inside !important;
+}
+
+.routes li {
+    counter-increment: step-counter;
+}
+ 
+.routes li::before {
+    content: counter(step-counter);
+    margin-right: 5px;
+    font-size: 80%;
+    background-color: rgb(200,200,200);
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.routes span { 
+    padding: 2px; 
+    font-style: normal; 
+    font-family: Arial; 
+    font-size: 18px !important; 
+    color: #eee !important;    
+}
