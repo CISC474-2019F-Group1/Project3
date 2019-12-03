@@ -13,11 +13,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { LoginComponent } from './login/login.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
-import { GlobalService } from './global.service';
 import { BuyComponent } from './buy/buy.component';
 
 
@@ -28,7 +26,6 @@ import { BuyComponent } from './buy/buy.component';
     RoutesComponent,
     MenuComponent,
     MenuComponent,
-    LoginComponent,
     LoginDialogComponent,
     SignupDialogComponent,
     BuyComponent
@@ -53,7 +50,7 @@ import { BuyComponent } from './buy/buy.component';
     MatSelectModule,
     LayoutModule,
   ],
-  providers: [GlobalService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginDialogComponent,
