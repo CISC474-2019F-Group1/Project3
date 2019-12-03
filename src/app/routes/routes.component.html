@@ -3,6 +3,7 @@
         <div class="panel panel-default" >
             <div class="panel-heading">
                 <p id="dests">{{route.startStation}} &#8594; {{route.destStation}}</p>
+                <img id="routeimg" src="../../assets/{{route.startStation}}{{route.destStation}}.png" />
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
             </div>
