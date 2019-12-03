@@ -258,6 +258,17 @@ svg#rocket-smoke {
     }
 }
 
+#videoBg{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100vh;
+    background-image: url(../assets/trainbg.gif);
+    background-size: 100% auto;
+    z-index: -1;
+}
+
 @media screen and (max-width: 575px) {
     svg#rocket-smoke {
       display: none;

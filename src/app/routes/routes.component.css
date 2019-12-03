@@ -17,10 +17,53 @@
     display: inline-block;
     width: 100%;
     text-align: center;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px #FFF solid;
+    margin-bottom: 5px;
+    font-size: 1.5em !important;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .routes .route {
+    border-top: 2px #F00 solid;
     width: 100%;
+    background-color: rgba(60, 60, 60, .8);
+    margin: 10px 0px 10px 0px;
+}
+
+.routes .route .panel-heading{
+    padding: 0px;
+    padding-bottom: 5px;
+}
+
+.route #routeimg{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.routes .route:first-of-type{
+    margin-top: 0px;
+}
+
+.routes .route:last-of-type{
+    margin-bottom: 0px;
+}
+
+.routes .panel-heading{
+    padding: 5px;
+}
+
+.routes p { 
+    padding: 2px; 
+    font-style: normal; 
+    font-family: 'Crete Round', serif;
+    font-size: 18px !important; 
+    color: #eee !important;    
     margin-bottom: 1rem;
 }
 
