@@ -3,8 +3,9 @@ import { FormControl, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
-import {Observable} from 'rxjs';
+import {Observable, from} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { RoutesService } from '../routes/routes.service';
 
 export interface City {
   name: string;
@@ -14,7 +15,8 @@ export interface City {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [ RoutesService ]
 })
 export class HomeComponent implements OnInit {
   @Output() output: string;
@@ -44,28 +46,13 @@ export class HomeComponent implements OnInit {
     {name: 'Washington DC', abbrv: 'WDC'},
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private routesService: RoutesService) { }
 
   ngOnInit() { }
 
   onClick() {
-    const fromAbbrv = this.fromControl.value;
-    const toAbbrv = this.toControl.value;
-    const dateVal = new Date(this.dateControl.value).getTime();
-
-    $.ajax({
-        url: `http://localhost:3000/api/path/${fromAbbrv}${toAbbrv}/${dateVal}`,
-        contentType: 'application/json',
-        type: 'GET',
-        statusCode: {
-          200(response) {
-              this.output = JSON.stringify(response);
-              console.log(response);
-          }
-        }
-    });
-
-    //this.router.navigateByUrl('/routes');
+    this.routesService.setParams(this.fromControl.value, this.toControl.value, new Date(this.dateControl.value).getTime());
+    this.router.navigateByUrl('/routes');
   }
 
 }

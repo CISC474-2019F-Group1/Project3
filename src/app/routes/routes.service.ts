@@ -10,24 +10,33 @@ const httpOptions = {
       'Access-Control-Allow-Origin': 'http://localhost:3000/api/routes'
     })
   };
+const params = [];
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
+
 export class RoutesService {
-    reqroutes = '';
 
     constructor(private http: HttpClient) { }
 
     getRoutes(): Observable<Route[]> {
-      if (this.reqroutes === '') {
+      console.log(params);
+      if (params.length < 2) {
         return this.http.get<Route[]>(`http://localhost:3000/api/routes`);
       } else {
-        const dbroutes = this.http.get<Route[]>(`http://localhost:3000/api/routes`);
-        const reqroutes = JSON.parse(this.reqroutes);
-
-        for (let i = 0; i < reqroutes.length; i++) {
-
-        }
+        return this.http.get<Route[]>(`http://localhost:3000/api/path/${params[0]}${params[1]}/${params[2]}`);
       }
     }
 
+    setParams(fromAbbr: string, toAbbr: string, timeVal: number) {
+      params[0] = fromAbbr;
+      params[1] = toAbbr;
+      params[2] = timeVal;
+      console.log(params);
+    }
+
+    getParams(): string[] {
+      return params;
+    }
 }
