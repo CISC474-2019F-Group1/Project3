@@ -7,6 +7,9 @@
             <a [routerLinkActive]='activeClass' class="nav-link" routerLink='routes'>View Routes</a>
         </li>
     </ul>
+    <div class="navbar-nav ml-auto btn-group" role="group">
+        <button *ngIf="!this.authService.isLoggedIn()" class="nav-item mr-1" mat-flat-button color="secondary" (click)="openLoginDialog()">Log In</button>
+        <button *ngIf="!this.authService.isLoggedIn()" class="nav-item" mat-flat-button color="primary" (click)="openSignupDialog()">Sign Up</button>
+        <button *ngIf="this.authService.isLoggedIn()" class="nav-item" mat-flat-button color="secondary" (click)="this.authService.logout()">Log Out</button>
+    </div>
 </nav>
-
-
