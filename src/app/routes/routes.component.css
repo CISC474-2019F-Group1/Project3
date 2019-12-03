@@ -13,6 +13,46 @@
     list-style-position: inside !important;
 }
 
+.routes .route {
+    border-top: 2px #F00 solid;
+    width: 100%;
+    background-color: rgba(60, 60, 60, .8);
+    margin: 10px 0px 10px 0px;
+}
+
+.routes .route .panel-heading{
+    padding: 0px;
+    padding-bottom: 5px;
+}
+
+.routes .route:first-of-type{
+    margin-top: 0px;
+}
+
+.routes .route:last-of-type{
+    margin-bottom: 0px;
+}
+
+.route #routeimg{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+.routes .panel-heading{
+    padding: 5px;
+}
+
+.routes p { 
+    padding: 2px; 
+    font-style: normal; 
+    font-family: 'Crete Round', serif;
+    font-size: 18px !important;
+    color: #eee !important;    
+    margin-bottom: 1rem;
+}
+
 .routes .dests{
     display: inline-block;
     width: 100%;
@@ -26,53 +66,50 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.routes .route {
-    border-top: 2px #F00 solid;
-    width: 100%;
-    background-color: rgba(60, 60, 60, .8);
-    margin: 10px 0px 10px 0px;
-}
-
-.routes .route .panel-heading{
-    padding: 0px;
-    padding-bottom: 5px;
-}
-
-.route #routeimg{
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0px;
-    padding: 0px;
-}
-
-.routes .route:first-of-type{
-    margin-top: 0px;
-}
-
-.routes .route:last-of-type{
-    margin-bottom: 0px;
-}
-
-.routes .panel-heading{
-    padding: 5px;
-}
-
-.routes p { 
-    padding: 2px; 
-    font-style: normal; 
-    font-family: 'Crete Round', serif;
-    font-size: 18px !important; 
-    color: #eee !important;    
-    margin-bottom: 1rem;
-}
-
-.routes .desc{
+.routes .desc {
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-.routes span#upcoming{
+.routes .btn {
+    padding: 2px; 
+    float: right;
+    cursor: pointer;
+    font-style: normal; 
+    font-family: 'Crete Round', serif;
+    font-size: 18px !important;
+    margin-top: -70px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background-color: #FFF;
+    box-shadow: 0 8px #999;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #000;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.routes .btn:active {
+    background-color: #3f51b5;
+    box-shadow: 0 6px #999;
+    transform: translateY(4px);
+}
+
+.routes .btn:hover {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.routes .btn .disable {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.routes span#upcoming {
     width: 100%;
     display: block;
     text-align: center;
