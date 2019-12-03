@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { 
-  FormGroup, 
-  FormBuilder, 
-  Validators 
+import {
+  FormGroup,
+  FormBuilder,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -17,16 +17,16 @@ import { GlobalService } from '../global.service';
 export class LoginDialogComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb:FormBuilder, 
-              private authService: AuthService, 
+  constructor(private fb: FormBuilder,
+              private authService: AuthService,
               private global: GlobalService,
               private router: Router,
               public dialogRef: MatDialogRef<LoginDialogComponent>,
               ) {
 
       this.loginForm = this.fb.group({
-          email: ['',Validators.required],
-          password: ['',Validators.required]
+          email: ['', Validators.required],
+          password: ['', Validators.required]
       });
   }
 
@@ -36,7 +36,7 @@ export class LoginDialogComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close();
   }
-  
+
   onSubmit(): void {
     const val = this.loginForm.value;
 
@@ -44,7 +44,7 @@ export class LoginDialogComponent implements OnInit {
       this.authService.login(val.email, val.password)
         .subscribe(
           () => {
-            console.log("User is logged in");
+            console.log('User is logged in');
             this.router.navigateByUrl('/');
             this.global.setLoggedIn(true);
             this.dialogRef.close();

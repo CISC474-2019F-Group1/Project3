@@ -32,7 +32,7 @@ export class MainNavComponent {
       console.log('Login dialog closed');
     });
   }
-  
+
   openSignupDialog(): void {
     const dialogRef = this.dialog.open(SignupDialogComponent, {
       width: '350px'

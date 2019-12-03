@@ -21,11 +21,11 @@ export class RoutesService {
       if (this.reqroutes === '') {
         return this.http.get<Route[]>(`http://localhost:3000/api/routes`);
       } else {
-        let dbroutes = this.http.get<Route[]>(`http://localhost:3000/api/routes`);
-        let reqroutes = JSON.parse(this.reqroutes);
+        const dbroutes = this.http.get<Route[]>(`http://localhost:3000/api/routes`);
+        const reqroutes = JSON.parse(this.reqroutes);
 
-        for (let i=0; i<reqroutes.length; i++) {
-          
+        for (let i = 0; i < reqroutes.length; i++) {
+
         }
       }
     }

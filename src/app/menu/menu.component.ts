@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '350px'
@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
       console.log('Login dialog closed');
     });
   }
-  
+
   openSignupDialog(): void {
     const dialogRef = this.dialog.open(SignupDialogComponent, {
       width: '350px'
