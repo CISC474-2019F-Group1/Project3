@@ -275,3 +275,17 @@ svg#rocket-smoke {
       visibility: hidden;
     }
 }
+
+.bgimage {
+background-image: url("/images/background.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+width:100%;
+height:100%;
+position:fixed;
+z-index:-1;
+}
+
+
+
