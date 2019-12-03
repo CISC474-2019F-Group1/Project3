@@ -16,3 +16,9 @@
     z-index: 1;
   }
   
+  .nav-item {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
