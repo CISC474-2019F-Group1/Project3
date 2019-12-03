@@ -1,11 +1,10 @@
 <div class="routes">
     <div class="panel-group route" [attr.id]="'accordion_' + i" *ngFor="let route of routesList; let i = index;">
-        <div class="panel panel-default" >
-            <div class="panel-heading">
-                <p id="dests">{{route.startStation}} &#8594; {{route.destStation}}</p>
+        <mat-card class="panel panel-default" >
+                <h2 class="dests">{{route.startStation}} &#8594; {{route.destStation}}</h2>
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
-            </div>
+
             <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <ul class="route-times">
@@ -15,5 +14,5 @@
                     </ul>
                 </div>
             </div>
-    </div>
+        </mat-card>
 </div>
