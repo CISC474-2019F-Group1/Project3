@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { 
-  FormGroup, 
-  FormBuilder, 
-  Validators 
+import {
+  FormGroup,
+  FormBuilder,
+  Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -16,17 +16,17 @@ import { AuthService } from '../auth.service';
 export class SignupDialogComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private fb:FormBuilder, 
-              private authService: AuthService, 
+  constructor(private fb: FormBuilder,
+              private authService: AuthService,
               private router: Router,
               public dialogRef: MatDialogRef<SignupDialogComponent>) {
 
       this.signupForm = this.fb.group({
-          firstname: ['',Validators.required],
-          lastname: ['',Validators.required],
-          email: ['',Validators.required],
-          password: ['',Validators.required],
-          password2: ['',Validators.required]
+          firstname: ['', Validators.required],
+          lastname: ['', Validators.required],
+          email: ['', Validators.required],
+          password: ['', Validators.required],
+          password2: ['', Validators.required]
       });
   }
 
@@ -36,7 +36,7 @@ export class SignupDialogComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close();
   }
-  
+
   onSubmit(): void {
     const val = this.signupForm.value;
 
@@ -44,7 +44,7 @@ export class SignupDialogComponent implements OnInit {
       this.authService.signup(val.firstname, val.lastname, val.email, val.password)
         .subscribe(
           () => {
-            console.log("User is signed up");
+            console.log('User is signed up');
             this.router.navigateByUrl('/');
             this.dialogRef.close();
           });

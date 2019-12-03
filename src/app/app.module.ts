@@ -5,8 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
-  MatTabsModule, MatAutocompleteModule, MatListModule,
-  MatSelectModule, MatIconModule,  MatSidenavModule, MatRadioModule, MatCheckboxModule,} from '@angular/material';
+  MatTabsModule, MatAutocompleteModule, MatSelectModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,7 +18,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
 import { GlobalService } from './global.service';
-import { MainNavComponent } from './main-nav/main-nav.component';
+import { BuyComponent } from './buy/buy.component';
 
 
 @NgModule({
@@ -32,7 +31,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     LoginComponent,
     LoginDialogComponent,
     SignupDialogComponent,
-    MainNavComponent
+    BuyComponent
   ],
   imports: [
     BrowserModule,
@@ -51,13 +50,8 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatTabsModule,
-    MatListModule,
     MatSelectModule,
-    MatIconModule,
     LayoutModule,
-    MatSidenavModule,
-    MatRadioModule,
-    MatCheckboxModule,
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent],

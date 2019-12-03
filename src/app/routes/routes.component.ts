@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as $ from 'jquery';
-
 import { Route } from './route';
 import { RoutesService } from './routes.service';
 import { Observable } from 'rxjs';
