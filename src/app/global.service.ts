@@ -17,4 +17,6 @@ export class GlobalService {
   getLoggedIn() {
     return this.loggedIn;
   }
+
+  
 }

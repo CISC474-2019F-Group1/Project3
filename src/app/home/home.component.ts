@@ -60,13 +60,12 @@ export class HomeComponent implements OnInit {
         statusCode: {
           200(response) {
               this.output = JSON.stringify(response);
-              this.routes.routes = this.output;
               console.log(response);
           }
         }
     });
 
-    this.router.navigateByUrl('/routes');
+    //this.router.navigateByUrl('/routes');
   }
 
 }

@@ -2,7 +2,7 @@
     <div class="panel-group route" [attr.id]="'accordion_' + i" *ngFor="let route of routesList; let i = index;">
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <p id="dests">{{route.startStation}} &#8594; {{route.destStation}}</p>
+                <p id="dests"><a routerLink='/routes/purchase'>{{route.startStation}} &#8594; {{route.destStation}}</a></p>
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
             </div>
