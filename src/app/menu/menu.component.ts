@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
-import { GlobalService } from '../global.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,7 +16,8 @@ export class MenuComponent implements OnInit {
 
   @Input() activeClass = 'active';
 
-  constructor(public dialog: MatDialog, private global: GlobalService) {}
+  constructor(public dialog: MatDialog, 
+              private authService: AuthService) {}
 
   ngOnInit() {
   }
