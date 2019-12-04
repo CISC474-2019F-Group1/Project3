@@ -31,7 +31,7 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginDialogComponent,
     SignupDialogComponent,
     BuyComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
