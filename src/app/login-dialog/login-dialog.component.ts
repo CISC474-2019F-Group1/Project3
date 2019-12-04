@@ -42,7 +42,6 @@ export class LoginDialogComponent implements OnInit {
         .subscribe(
           () => {
             console.log('User is logged in');
-            this.router.navigateByUrl('/');
             this.dialogRef.close();
           });
     }

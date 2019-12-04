@@ -45,7 +45,6 @@ export class SignupDialogComponent implements OnInit {
         .subscribe(
           () => {
             console.log('User is signed up');
-            this.router.navigateByUrl('/');
             this.dialogRef.close();
           });
     }
