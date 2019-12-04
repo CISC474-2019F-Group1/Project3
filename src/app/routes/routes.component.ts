@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import * as $ from 'jquery';
 import { Route } from './route';
 import { RoutesService } from './routes.service';
@@ -38,6 +39,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
   }
 
   resTicket(): void {
+    $.post(`localhost:3000/api/getTicket`, this.routesList);
     console.log('Ticket Reserved!');
   }
 
