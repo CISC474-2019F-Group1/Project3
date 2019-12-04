@@ -9,9 +9,7 @@ import * as moment from 'moment';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   signup(firstname: string, lastname: string, email: string, password: string ) {
     return this.http.post('http://localhost:3000/api/auth/register', {
