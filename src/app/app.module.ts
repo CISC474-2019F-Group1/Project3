@@ -17,6 +17,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { BuyComponent } from './buy/buy.component';
     MenuComponent,
     LoginDialogComponent,
     SignupDialogComponent,
-    BuyComponent
+    BuyComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
