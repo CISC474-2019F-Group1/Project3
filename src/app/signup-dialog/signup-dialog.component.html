@@ -3,19 +3,19 @@
   <form [formGroup]="signupForm">
     <fieldset>
       <mat-form-field class="w-100">
-        <input matInput placeholder="First name" name="firstname" formControlName="firstname">
+        <input matInput placeholder="First name" name="firstname" formControlName="firstname" required>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput placeholder="Last name" name="lastname" formControlName="lastname">
+        <input matInput placeholder="Last name" name="lastname" formControlName="lastname" required>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput placeholder="Email" name="email" formControlName="email">
+        <input matInput placeholder="Email" name="email" formControlName="email" required>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput type="password" placeholder="Password" name="password" formControlName="password">
+        <input matInput type="password" placeholder="Password" name="password" formControlName="password" required>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput type="password" placeholder="Confirm password" name="password2" formControlName="password2">
+        <input matInput type="password" placeholder="Confirm password" name="password2" formControlName="password2" required>
       </mat-form-field>
     </fieldset>
   </form>

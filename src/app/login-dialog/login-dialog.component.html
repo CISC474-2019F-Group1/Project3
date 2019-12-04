@@ -3,10 +3,10 @@
   <form [formGroup]="loginForm">
     <fieldset>
       <mat-form-field class="w-100">
-        <input matInput placeholder="Email" name="email" formControlName="email">
+        <input matInput placeholder="Email" name="email" formControlName="email" required>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput type="password" placeholder="Password" name="password" formControlName="password">
+        <input matInput type="password" placeholder="Password" name="password" formControlName="password" required>
       </mat-form-field>
     </fieldset>
   </form>
