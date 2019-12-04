@@ -17,10 +17,12 @@ import { throwToolbarMixedModesError } from '@angular/material';
 export class RoutesComponent implements OnInit, OnDestroy {
 
   routesList = [];
+  routeTimes = [];
 
   constructor(private http: HttpClient,
               private routesService: RoutesService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getRoutes();
@@ -34,13 +36,22 @@ export class RoutesComponent implements OnInit, OnDestroy {
     this.routesService.getRoutes().subscribe({
       next: x => this.routesList = x,
       error: err => console.log('error: ' + err),
-      complete: () => console.log(this.routesList),
+      complete: () => this.helpFunc(),
     });
   }
 
+  helpFunc(): void {
+    console.log(this.routesList)
+    for (let i = 0; i < this.routesList[1].trips.length; i++) {
+      this.routeTimes.push({trip: this.routesList[1].trips[i][1]});
+    }
+    console.log(this.routeTimes)
+  }
+
   resTicket(): void {
-    $.post(`localhost:3000/api/getTicket`, this.routesList);
+    $.post(`http://localhost:3000/api/getTicket`, this.routesList[1]);
     console.log('Ticket Reserved!');
   }
 
 }
+
