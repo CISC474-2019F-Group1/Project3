@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,8 @@ export class ProfileComponent implements OnInit {
   private password2Control = new FormControl('', [Validators.required]);
   private selectedTabIndex = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.http.get('http://localhost:3000/api/userInfo').subscribe(res => {
@@ -34,23 +36,30 @@ export class ProfileComponent implements OnInit {
       this.http.put('http://localhost:3000/api/userInfo', { 
         firstname: this.firstnameControl.value,
         lastname: this.lastnameControl.value
-      }).subscribe(_ => {
-        console.log("Data saved");
-      });
+      }).subscribe(
+        success => {
+          this.snackBar.open('Profile information updated', '', { duration: 3000 });
+        },
+        error => {
+          this.snackBar.open('Error updating information. Please try again', '', { duration: 3000 });
+        });
     } else if (this.selectedTabIndex == 1) {
       if (this.passwordControl.value == this.password2Control.value) {
         this.http.put('http://localhost:3000/api/auth/updatePassword', { 
           password: this.passwordControl.value,
           oldPassword: this.oldPasswordControl.value
-        }).subscribe(_ => {
-          console.log("Data saved");
-          this.oldPasswordControl.setValue('');
-          this.passwordControl.setValue('');
-          this.password2Control.setValue('');
-        });
+        }).subscribe(
+          success => {
+            this.snackBar.open('Password updated', '', { duration: 3000 });
+            this.oldPasswordControl.setValue('');
+            this.passwordControl.setValue('');
+            this.password2Control.setValue('');
+          },
+          error => { 
+            this.snackBar.open('Error updating password. Please check your old password and try again', '', { duration: 3000 });
+          });
       } else {
-        // TODO display message that passwords do not match
-        console.log("Passwords do not match!");
+        this.snackBar.open('New passwords do not match!', '', { duration: 3000 });
       }
     }
   }
