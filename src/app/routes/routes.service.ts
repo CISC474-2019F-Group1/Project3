@@ -10,7 +10,7 @@ const httpOptions = {
       'Access-Control-Allow-Origin': 'http://localhost:3000/api/routes'
     })
   };
-const params = [];
+let params = [];
 
 @Injectable({
   providedIn: 'root',
@@ -29,11 +29,15 @@ export class RoutesService {
       }
     }
 
-    setParams(fromAbbr: string, toAbbr: string, timeVal: number) {
+    setParams(fromAbbr: string, toAbbr: string, timeVal: number): void {
       params[0] = fromAbbr;
       params[1] = toAbbr;
       params[2] = timeVal;
       console.log(params);
+    }
+
+    clearParams(): void {
+      params = [];
     }
 
     getParams(): string[] {
