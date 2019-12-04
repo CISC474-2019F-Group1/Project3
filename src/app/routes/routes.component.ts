@@ -42,14 +42,14 @@ export class RoutesComponent implements OnInit, OnDestroy {
 
   helpFunc(): void {
     console.log(this.routesList)
-    for (let i = 0; i < this.routesList[1].trips.length; i++) {
-      this.routeTimes.push({trip: this.routesList[1].trips[i][1]});
+    for (let i = 0; i < this.routesList[0].trips.length; i++) {
+      this.routeTimes.push({trip: this.routesList[0].trips[i][0]});
     }
-    console.log(this.routeTimes)
+    console.log(this.routeTimes);
   }
 
   resTicket(): void {
-    $.post(`http://localhost:3000/api/getTicket`, this.routesList[1]);
+    $.post(`http://localhost:3000/api/getTicket`, this.routesList[0]);
     console.log('Ticket Reserved!');
   }
 
