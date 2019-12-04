@@ -1,1 +1,21 @@
-<p>profile works!</p>
+<mat-card class="">
+  <mat-card-title>Personal Information</mat-card-title>
+  <mat-form-field>
+    <input matInput placeholder="First name" [formControl]="firstnameControl">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Last name" [formControl]="lastnameControl">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" [formControl]="emailControl">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" [formControl]="passwordControl" placeholder="Password">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" [formControl]="password2Control" placeholder="Confirm password">
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" (click)="false">Save</button>
+  </div>
+</mat-card>

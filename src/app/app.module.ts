@@ -7,7 +7,7 @@ import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
   MatTabsModule, MatAutocompleteModule, MatSelectModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +18,7 @@ import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatSelectModule,
     LayoutModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginDialogComponent,
