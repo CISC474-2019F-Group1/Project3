@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import * as $ from 'jquery';
 import { Route } from './route';
 import { RoutesService } from './routes.service';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
+import { throwToolbarMixedModesError } from '@angular/material';
 
 @Component({
   selector: 'app-routes',
@@ -12,16 +14,20 @@ import { Observable } from 'rxjs';
   providers: [RoutesService],
   styleUrls: ['./routes.component.css']
 })
-export class RoutesComponent implements OnInit {
+export class RoutesComponent implements OnInit, OnDestroy {
 
   routesList = [];
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
               private routesService: RoutesService,
               private authService: AuthService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getRoutes();
+  }
+
+  ngOnDestroy(): void {
+    this.routesService.clearParams();
   }
 
   getRoutes(): void {
@@ -30,6 +36,11 @@ export class RoutesComponent implements OnInit {
       error: err => console.log('error: ' + err),
       complete: () => console.log(this.routesList),
     });
+  }
+
+  resTicket(): void {
+    $.post(`localhost:3000/api/getTicket`, this.routesList);
+    console.log('Ticket Reserved!');
   }
 
 }

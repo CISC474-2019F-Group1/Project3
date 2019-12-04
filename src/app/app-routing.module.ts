@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TicketsComponent } from './tickets/tickets.component';
 import { AuthGuardService } from './auth-guard.service';
 import { MyTripsComponent } from './my-trips/my-trips.component';
 

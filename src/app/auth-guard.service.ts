@@ -7,12 +7,12 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {  
-  constructor(public authService: AuthService, 
+export class AuthGuardService implements CanActivate {
+  constructor(public authService: AuthService,
               public router: Router,
               public dialog: MatDialog) {
-  }  
-  
+  }
+
   canActivate(): boolean {
     if (!this.authService.isLoggedIn()) {
       this.router.navigateByUrl('/');

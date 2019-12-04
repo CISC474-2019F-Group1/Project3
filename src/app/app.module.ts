@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
-  MatTabsModule, MatAutocompleteModule, MatSelectModule} from '@angular/material';
+  MatTabsModule, MatAutocompleteModule, MatSelectModule, MatSnackBarModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -53,6 +53,7 @@ import { MyTripsComponent } from './my-trips/my-trips.component';
     MatAutocompleteModule,
     MatTabsModule,
     MatSelectModule,
+    MatSnackBarModule,
     LayoutModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

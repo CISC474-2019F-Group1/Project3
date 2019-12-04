@@ -6,7 +6,7 @@
                 <img id="routeimg" src="../../assets/{{route.startStation}}{{route.destStation}}.png" />
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
-                <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me">
+                <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me" (click)="resTicket()">
             <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <ul class="route-times">
