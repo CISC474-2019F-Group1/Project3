@@ -7,7 +7,7 @@
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
                 <select *ngIf="this.authService.isLoggedIn()" class="slct" required>
-                        <option *ngFor="let trip of routeTimes;" ng-repeat="trip in routeTimes" value="{{trip}}">{{trip.trip}}</option>
+                        <option *ngFor="let trip of routeTimes;" ng-repeat="trip in routeTimes" value="{{trip}}">{{trip.trip | date : 'EEE, LLL d, H:mm'}}</option>
                 </select>
                 <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me" (click)="resTicket()">
             <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">

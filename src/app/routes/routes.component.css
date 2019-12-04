@@ -56,6 +56,20 @@
     margin-bottom: 1rem;
 }
 
+.routes select{
+    display: block;
+    padding: 2px; 
+    font-style: normal; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px !important;
+    color: #eee !important;    
+    margin-bottom: 1rem;
+    width: 100%;
+    border: none;
+    background-color: #000;
+    padding: 10px;
+}
+
 .routes .dests{
     display: inline-block;
     width: 50%;
