@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as $ from 'jquery';
 import { Route } from './route';
 import { RoutesService } from './routes.service';
+import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +16,9 @@ export class RoutesComponent implements OnInit {
 
   routesList = [];
 
-  constructor(private http: HttpClient, private routesService: RoutesService) { }
+  constructor(private http: HttpClient, 
+              private routesService: RoutesService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.getRoutes();
