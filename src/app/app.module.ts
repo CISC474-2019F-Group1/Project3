@@ -19,6 +19,7 @@ import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { MyTripsComponent } from './my-trips/my-trips.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginDialogComponent,
     SignupDialogComponent,
     BuyComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyTripsComponent
   ],
   imports: [
     BrowserModule,

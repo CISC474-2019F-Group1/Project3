@@ -5,6 +5,7 @@ import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './auth-guard.service';
+import { MyTripsComponent } from './my-trips/my-trips.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'routes', component: RoutesComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
-  {path: 'routes/purchase', component: BuyComponent}
+  {path: 'routes/purchase', component: BuyComponent},
+  {path: 'my-trips', component: MyTripsComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
