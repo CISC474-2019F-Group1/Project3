@@ -24,26 +24,26 @@
     display: inline-block;
 }
 
-.routes .route .panel-heading{
+.routes .route .panel-heading {
     padding: 0px;
 }
 
-.routes .route:first-of-type{
+.routes .route:first-of-type {
     margin-top: 0px;
 }
 
-.routes .route:last-of-type{
+.routes .route:last-of-type {
     margin-bottom: 0px;
 }
 
-.route #routeimg{
+.route #routeimg {
     width: 100%;
     height: auto;
     display: block;
     margin: 0px;
     padding: 0px;
 }
-.routes .panel-heading{
+.routes .panel-heading {
     padding: 5px;
 }
 
@@ -71,7 +71,7 @@
     padding: 10px;
 }
 
-.routes .dests{
+.routes .dests {
     display: inline-block;
     width: 50%;
     margin-left: 25%;
@@ -87,7 +87,7 @@
     transition-duration: 0.3s;
 }
 
-.route:hover .dests{
+.route:hover .dests {
     width: 70%;
     margin-left: 15%;
     border-bottom: 1px #F00 solid;
@@ -100,18 +100,15 @@
 }
 
 .routes .btn {
+    width: 100%;
     padding: 2px;
-    cursor: pointer;
+    color: #FFF;
     font-style: normal; 
     font-family: 'Montserrat', sans-serif;
     font-size: 18px !important;
-    border-radius: 0px;
     background-color: #F00;
-    width: 100%;
+    border-radius: 0px;    
     text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #FFF;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
@@ -126,9 +123,9 @@
     color: white;
 }
 
-.routes .btn .disable {
-    opacity: .6;
-    cursor: not-allowed;
+.routes .disable {
+    opacity: .6 !important;
+    cursor: not-allowed !important;
 }
 
 .routes span#upcoming {

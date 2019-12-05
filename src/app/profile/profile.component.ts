@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
+
   private firstnameControl =  new FormControl('', []);
   private lastnameControl =  new FormControl('', []);
   private emailControl = new FormControl({value: '', disabled: true}, []);
@@ -30,10 +30,10 @@ export class ProfileComponent implements OnInit {
       this.emailControl.setValue(res['email']);
     });
   }
-  
+
   saveActiveInfo() {
-    if (this.selectedTabIndex == 0) {
-      this.http.put('http://localhost:3000/api/userInfo', { 
+    if (this.selectedTabIndex === 0) {
+      this.http.put('http://localhost:3000/api/userInfo', {
         firstname: this.firstnameControl.value,
         lastname: this.lastnameControl.value
       }).subscribe(
@@ -43,9 +43,9 @@ export class ProfileComponent implements OnInit {
         error => {
           this.snackBar.open('Error updating information. Please try again', '', { duration: 3000 });
         });
-    } else if (this.selectedTabIndex == 1) {
-      if (this.passwordControl.value == this.password2Control.value) {
-        this.http.put('http://localhost:3000/api/auth/updatePassword', { 
+    } else if (this.selectedTabIndex === 1) {
+      if (this.passwordControl.value === this.password2Control.value) {
+        this.http.put('http://localhost:3000/api/auth/updatePassword', {
           password: this.passwordControl.value,
           oldPassword: this.oldPasswordControl.value
         }).subscribe(
@@ -55,11 +55,11 @@ export class ProfileComponent implements OnInit {
             this.passwordControl.setValue('');
             this.password2Control.setValue('');
           },
-          error => { 
+          error => {
             this.snackBar.open('Error updating password. Please check your old password and try again', '', { duration: 3000 });
           });
       } else {
-        this.snackBar.open('New passwords do not match!', '', { duration: 3000 });
+        this.snackBar.open('New passwords do not match', '', { duration: 3000 });
       }
     }
   }

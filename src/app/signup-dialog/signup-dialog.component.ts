@@ -40,7 +40,7 @@ export class SignupDialogComponent implements OnInit {
   onSubmit(): void {
     const val = this.signupForm.value;
 
-    if (val.firstname && val.lastname && val.email && val.password && (val.password == val.password2)) {
+    if (val.firstname && val.lastname && val.email && val.password && (val.password === val.password2)) {
       this.authService.signup(val.firstname, val.lastname, val.email, val.password)
         .subscribe(
           () => {
