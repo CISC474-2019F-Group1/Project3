@@ -25,7 +25,16 @@ export class RoutesComponent implements OnInit, OnDestroy {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getRoutes();
+    this.routesService.getRoutes().subscribe({
+      next: routes => {
+        this.routesList = routes;
+      },
+      error: err => console.log('error: ' + err)
+    });
+  }
+
+  formatDate(dateString: string) {
+    return new Date(dateString).toLocaleString();
   }
 
   ngOnDestroy(): void {
@@ -41,17 +50,25 @@ export class RoutesComponent implements OnInit, OnDestroy {
   }
 
   helpFunc(): void {
-    console.log(this.routesList)
+    console.log(this.routesList);
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.routesList[0].trips.length; i++) {
       this.routeTimes.push({trip: this.routesList[0].trips[i][0]});
     }
     console.log(this.routeTimes);
   }
 
-  resTicket(btn: HTMLElement): void {
-    $.post(`http://localhost:3000/api/getTicket`, this.routesList[0]);
-    $(btn).addClass(".disable");
-    alert('Ticket Reserved!');
+  resTicket(routeIndex: number, timeIndex: number): void {
+    const route = this.routesList[routeIndex];
+    const time = route.trips[timeIndex];
+
+    const ticket = {
+      startStation: route.startStation,
+      destStation: route.destStation,
+      startTime: time[0],
+      destTime: time[1]
+    };
+    this.http.post('http://localhost:3000/api/getTicket', ticket).subscribe(_ => console.log('Ticket Reserved!'));
   }
 
 }

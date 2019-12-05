@@ -17,15 +17,15 @@
     border-top: 2px #F00 solid;
     width: 100%;
     background-color: rgba(60, 60, 60, .8);
-    margin: 10px 0px 10px 0px;
+    margin-bottom: 1rem;
     -webkit-column-break-inside: avoid !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+    display: inline-block;
 }
 
 .routes .route .panel-heading{
     padding: 0px;
-    padding-bottom: 5px;
 }
 
 .routes .route:first-of-type{
@@ -54,6 +54,20 @@
     font-size: 18px !important;
     color: #eee !important;    
     margin-bottom: 1rem;
+}
+
+.routes select{
+    display: block;
+    padding: 2px; 
+    font-style: normal; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px !important;
+    color: #eee !important;    
+    margin-bottom: 1rem;
+    width: 100%;
+    border: none;
+    background-color: #000;
+    padding: 10px;
 }
 
 .routes .dests{

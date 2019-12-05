@@ -9,6 +9,9 @@
         <li *ngIf="this.authService.isLoggedIn()" class="nav-item ">
             <a [routerLinkActive]='activeClass' class="nav-link" routerLink='profile'>Profile</a>
         </li>
+        <li *ngIf="this.authService.isLoggedIn()" class="nav-item ">
+                <a [routerLinkActive]='activeClass' class="nav-link" routerLink='my-trips'>My Trips</a>
+            </li>
     </ul>
     <div class="navbar-nav ml-auto btn-group" role="group">
         <button *ngIf="!this.authService.isLoggedIn()" class="nav-item mr-1" mat-flat-button color="secondary" (click)="openLoginDialog()">Log In</button>

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,
   MatExpansionModule, MatNativeDateModule, MatDatepickerModule,
-  MatTabsModule, MatAutocompleteModule, MatSelectModule} from '@angular/material';
+  MatTabsModule, MatAutocompleteModule, MatSelectModule, MatSnackBarModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -19,6 +19,7 @@ import { RoutesComponent } from './routes/routes.component';
 import { BuyComponent } from './buy/buy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { MyTripsComponent } from './my-trips/my-trips.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AuthInterceptor } from './auth.interceptor';
     SignupDialogComponent,
     BuyComponent,
     ProfileComponent,
+    MyTripsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { AuthInterceptor } from './auth.interceptor';
     MatAutocompleteModule,
     MatTabsModule,
     MatSelectModule,
+    MatSnackBarModule,
     LayoutModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

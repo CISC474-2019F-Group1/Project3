@@ -6,17 +6,13 @@
                 <img id="routeimg" src="../../assets/{{route.startStation}}{{route.destStation}}.png" />
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
-                <select *ngIf="this.authService.isLoggedIn()" class="slct" required>
-                        <option *ngFor="let trip of routeTimes;" ng-repeat="trip in routeTimes" value="{{trip}}">{{trip.trip}}</option>
-                </select>
-                <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me" (click)="resTicket(this)">
-            <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <ul class="route-times">
-                        <li *ngFor="let trip of route.trips | slice:0:10">
-                            <span>{{trip[0] | date : 'EEE, LLL d, H:mm'}}</span><span>to</span><span>{{trip[1] | date : 'H:mm'}}</span>
-                        </li>
-                    </ul>
+                <div *ngIf="this.authService.isLoggedIn()">
+                  <select #time class="slct" required>
+                          <option *ngFor="let trip of route.trips; let j = index;" value="{{j}}">{{formatDate(trip[0])}} &#8594; {{formatDate(trip[1])}}</option>
+                  </select>
+                  <input class="btn" type="button" value="Reserve Me" (click)="resTicket(i, time.value)">
                 </div>
             </div>
+        </div>
+    </div>
 </div>
