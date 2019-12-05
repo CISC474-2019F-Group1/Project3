@@ -50,12 +50,10 @@ export class RoutesComponent implements OnInit, OnDestroy {
   }
 
   helpFunc(): void {
-    console.log(this.routesList);
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.routesList[0].trips.length; i++) {
       this.routeTimes.push({trip: this.routesList[0].trips[i][0]});
     }
-    console.log(this.routeTimes);
   }
 
   resTicket(routeIndex: number, timeIndex: number): void {
