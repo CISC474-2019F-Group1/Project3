@@ -15,7 +15,6 @@ export class RoutesService {
     constructor(private http: HttpClient) { }
 
     getRoutes(): Observable<Route[]> {
-      console.log(params);
       if (params.length < 2) {
         return this.http.get<Route[]>('http://localhost:3000/api/routes');
       } else {
@@ -27,7 +26,6 @@ export class RoutesService {
       params[0] = fromAbbr;
       params[1] = toAbbr;
       params[2] = timeVal;
-      console.log(params);
     }
 
     clearParams(): void {

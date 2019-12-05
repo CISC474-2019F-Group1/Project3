@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { RoutesService } from './routes.service';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MyTripsComponent } from '../my-trips/my-trips.component';
 
 @Component({
   selector: 'app-routes',
@@ -60,7 +61,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
   resTicket(routeIndex: number, timeIndex: number): void {
     const route = this.routesList[routeIndex];
     const time = route.trips[timeIndex];
-    document.getElementById(`btn${routeIndex}`).classList.add('disable');
+    let trips = [];
 
     const ticket = {
       startStation: route.startStation,
@@ -68,9 +69,23 @@ export class RoutesComponent implements OnInit, OnDestroy {
       startTime: time[0],
       destTime: time[1]
     };
-    this.http.post('http://localhost:3000/api/getTicket', ticket).subscribe(_ => console.log('Ticket Reserved!'));
-    this.snackBar.open('Your ticket has been reserved', '', { duration: 3000 });
+    this.http.get('http://localhost:3000/api/userInfo').subscribe( res => {
+      trips = res['trips'];
+      console.log(trips);
+    });
+
+    if (trips.includes(ticket)) {
+      this.snackBar.open('You already reserved this ticket', '', { duration: 3000 });
+      document.getElementById(`btn${routeIndex}`).classList.add('disable');
+    } else {
+      this.http.post('http://localhost:3000/api/getTicket', ticket).subscribe(() => console.log('Ticket Reserved!'));
+      this.snackBar.open('Your ticket has been reserved', '', { duration: 3000 });
+      document.getElementById(`btn${routeIndex}`).classList.add('disable');
+    }
   }
 
+  resetBtn(index: number): void {
+    document.getElementById(`btn${index}`).classList.remove('disable');
+  }
 }
 
