@@ -7,7 +7,7 @@
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
                 <div *ngIf="this.authService.isLoggedIn()">
-                  <select #time class="slct" required>
+                  <select #time class="slct" required (change)="resetBtn(i);">
                         <option *ngFor="let trip of route.trips; let j = index;" value="{{j}}">{{formatDate(trip[0])}} &#8594; {{formatDate(trip[1])}}</option>
                   </select>
                   <input class="btn" id="btn{{i}}" type="button" value="Reserve Me" (click)="resTicket(i, time.value)">
