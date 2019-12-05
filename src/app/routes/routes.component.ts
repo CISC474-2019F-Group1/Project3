@@ -48,9 +48,10 @@ export class RoutesComponent implements OnInit, OnDestroy {
     console.log(this.routeTimes);
   }
 
-  resTicket(): void {
+  resTicket(btn: HTMLElement): void {
     $.post(`http://localhost:3000/api/getTicket`, this.routesList[0]);
-    console.log('Ticket Reserved!');
+    $(btn).addClass(".disable");
+    alert('Ticket Reserved!');
   }
 
 }

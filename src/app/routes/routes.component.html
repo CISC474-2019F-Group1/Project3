@@ -9,7 +9,7 @@
                 <select *ngIf="this.authService.isLoggedIn()" class="slct" required>
                         <option *ngFor="let trip of routeTimes;" ng-repeat="trip in routeTimes" value="{{trip}}">{{trip.trip}}</option>
                 </select>
-                <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me" (click)="resTicket()">
+                <input *ngIf="this.authService.isLoggedIn()" class="btn" type="button" value="Reserve Me" (click)="resTicket(this)">
             <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <ul class="route-times">
