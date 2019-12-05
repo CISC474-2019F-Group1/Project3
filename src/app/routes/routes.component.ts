@@ -60,7 +60,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
   resTicket(routeIndex: number, timeIndex: number): void {
     const route = this.routesList[routeIndex];
     const time = route.trips[timeIndex];
-    $(`btn${routeIndex}`).attr('disabled', 'true');
+    document.getElementById(`btn${routeIndex}`).classList.add('disable');
 
     const ticket = {
       startStation: route.startStation,
