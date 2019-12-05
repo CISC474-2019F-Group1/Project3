@@ -14,8 +14,11 @@ export class MyTripsComponent implements OnInit {
   ngOnInit() {
     this.http.get('http://localhost:3000/api/userInfo').subscribe(res => {
       this.trips = res["trips"];
-      console.log(res["trips"].trips)
     });
+  }
+  
+  formatDate(dateString: string){
+    return new Date(dateString).toLocaleString();
   }
 
 }
