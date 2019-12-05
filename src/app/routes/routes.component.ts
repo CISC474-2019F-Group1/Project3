@@ -69,7 +69,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
       destTime: time[1]
     };
     this.http.post('http://localhost:3000/api/getTicket', ticket).subscribe(_ => console.log('Ticket Reserved!'));
-    this.snackBar.open('Ticket has been reserved', '', { duration: 3000 });
+    this.snackBar.open('Your ticket has been reserved', '', { duration: 3000 });
   }
 
 }
