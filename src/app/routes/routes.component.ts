@@ -17,7 +17,6 @@ import { throwToolbarMixedModesError } from '@angular/material';
 export class RoutesComponent implements OnInit, OnDestroy {
 
   routesList = [];
-  routeTimes = [];
 
   constructor(private http: HttpClient,
               private routesService: RoutesService,
@@ -25,32 +24,33 @@ export class RoutesComponent implements OnInit, OnDestroy {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getRoutes();
+    this.routesService.getRoutes().subscribe({
+      next: routes => {
+        this.routesList = routes;
+      },
+      error: err => console.log('error: ' + err)
+    });
+  }
+  
+  formatDate(dateString: string){
+    return new Date(dateString).toLocaleString();
   }
 
   ngOnDestroy(): void {
     this.routesService.clearParams();
   }
 
-  getRoutes(): void {
-    this.routesService.getRoutes().subscribe({
-      next: x => this.routesList = x,
-      error: err => console.log('error: ' + err),
-      complete: () => this.helpFunc(),
-    });
-  }
-
-  helpFunc(): void {
-    console.log(this.routesList)
-    for (let i = 0; i < this.routesList[1].trips.length; i++) {
-      this.routeTimes.push({trip: this.routesList[1].trips[i][1]});
+  resTicket(routeIndex: number, timeIndex: number): void {
+    const route = this.routesList[routeIndex];
+    const time = route.trips[timeIndex];
+    
+    const ticket = {
+      startStation: route.startStation,
+      destStation: route.destStation,
+      startTime: time[0],
+      destTime: time[1]
     }
-    console.log(this.routeTimes)
-  }
-
-  resTicket(): void {
-    $.post(`http://localhost:3000/api/getTicket`, this.routesList[1]);
-    console.log('Ticket Reserved!');
+    this.http.post('http://localhost:3000/api/getTicket', ticket).subscribe(_ => console.log('Ticket Reserved!'));
   }
 
 }

@@ -4,12 +4,6 @@ import { Route } from './route';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:3000/api/routes'
-    })
-  };
 let params = [];
 
 @Injectable({
@@ -23,9 +17,9 @@ export class RoutesService {
     getRoutes(): Observable<Route[]> {
       console.log(params);
       if (params.length < 2) {
-        return this.http.get<Route[]>(`http://localhost:3000/api/routes`);
+        return this.http.get<Route[]>('http://localhost:3000/api/routes');
       } else {
-        return this.http.get<Route[]>(`http://localhost:3000/api/path/${params[0]}${params[1]}/${params[2]}`);
+        return this.http.get<Route[]>('http://localhost:3000/api/path/' + params[0] + params[1] + '/' + params[2]);
       }
     }
 
