@@ -7,10 +7,15 @@
                 <p class="desc"><span>Train:</span> {{route.train.name}}</p>
                 <p class="desc"><span>Seats:</span> {{route.train.capacity}}</p>
                 <div *ngIf="this.authService.isLoggedIn()">
-                  <select #time class="slct" required (change)="resetBtn(i);">
-                        <option *ngFor="let trip of route.trips; let j = index;" value="{{j}}">{{formatDate(trip[0])}} &#8594; {{formatDate(trip[1])}}</option>
-                  </select>
-                  <input class="btn" id="btn{{i}}" type="button" value="Reserve Me" (click)="resTicket(i, time.value)">
+                  <mat-form-field>
+                    <mat-label>Time</mat-label>
+                    <mat-select #time required [value]="'0'">
+                      <mat-option *ngFor="let trip of route.trips; let j = index;" value="{{j}}">
+                        {{formatDate(trip[0])}} &#8594; {{formatDate(trip[1])}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <input class="btn" type="button" value="Reserve Me" (click)="resTicket(i, time.value)">
                 </div>
             </div>
         </div>
